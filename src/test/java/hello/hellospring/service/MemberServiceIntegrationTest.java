@@ -1,21 +1,24 @@
-package service;
+package hello.hellospring.service;
 
-import hello_spring.domain.Member;
-import hello_spring.domain.MemoryMemberRepository;
-import org.junit.jupiter.api.BeforeEach;
+import hello.hellospring.domain.Member;
+import hello.hellospring.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
+import org.springframework.transaction.annotation.Transactional;
+import service.MemberService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class MemberServiceTest {
-    MemberService memberService;
-    MemoryMemberRepository memberRepository;
+@SpringBootTest
+@Transactional
+class MemberServiceIntegrationTest {
 
-    @BeforeEach
-    public void beforeEach() {
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
-    }
+    @Autowired
+    MemberService memberService;
+    @Autowired
+    MemberRepository memberRepository;
 
     @Test
     void 회원가입() {
@@ -56,9 +59,5 @@ class MemberServiceTest {
          */
 
         //then
-    }
-
-    @Test
-    void findOne() {
     }
 }

@@ -1,8 +1,9 @@
-package hello_spring.domain;
+package hello.hellospring.domain;
 
-import hello_spring.repository.MemberRepository;
+import hello.hellospring.repository.MemberRepository;
 
 import java.util.*;
+
 
 public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>();
